@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
   },
   "author": "Francisco",
   "license": "ISC",
@@ -16,7 +17,7 @@
     "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^3.1.14"
+    "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0"

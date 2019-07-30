@@ -3846,19 +3846,7 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _test = __webpack_require__(/*! ./test */ \"./src/js/test.js\");\n\nvar _test2 = _interopRequireDefault(_test);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar x = 22; // Global app controller\n\nconsole.log('I imported ' + _test2.default + ' from another module BLUHH asdfadsf var x is  ' + x);\n\n//# sourceURL=webpack:///./src/js/index.js?");
-
-/***/ }),
-
-/***/ "./src/js/test.js":
-/*!************************!*\
-  !*** ./src/js/test.js ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nconsole.log('Imported module');\n\nexports.default = 99;\n\n//# sourceURL=webpack:///./src/js/test.js?");
+eval("\n\nvar _Search = __webpack_require__(!(function webpackMissingModule() { var e = new Error(\"Cannot find module './models/Search'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));\n\nvar _Search2 = _interopRequireDefault(_Search);\n\nvar _searchView = __webpack_require__(!(function webpackMissingModule() { var e = new Error(\"Cannot find module '.views/searchView'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n// Global app controller\nconsole.log('using imported funcs ! ' + (0, _searchView.add)(ID, 2) + ' and ' + (0, _searchView.multiply)(3, 5));\n\n//# sourceURL=webpack:///./src/js/index.js?");
 
 /***/ }),
 

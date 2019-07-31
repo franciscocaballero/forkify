@@ -6,7 +6,7 @@ export default class Search{
     }
 
     async getResults(query) {
-        const key ='dc84293d4bdbece0307db6b60dbf0211';
+        const key ='84804e46b873ae3800fcf5adacdb2991';
     
         try {
             const res = await axios(`https://www.food2fork.com/api/search?key=${key}&q=${this.query}`);

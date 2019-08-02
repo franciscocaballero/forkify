@@ -17,13 +17,13 @@ const limitRecipeTitle = (title, limit = 17) => {
             if (acc + cur.length <= limit) {
                 newTitle.push(cur);
             }
-            return acc + cur.length;
+            return acc + cur.length; //update acc
         }, 0);
 
         //return the result 
         return `${newTitle.join(' ')}...`;
     }
-    return title;
+    return title; // else return title 
 }
 
 const renderRecipe = recipe => {

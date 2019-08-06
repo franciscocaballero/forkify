@@ -1,6 +1,7 @@
-import Search from '../models/Search';
-import * as searchView from '../views/searchView';
-import { elements, renderLoader, clearLoader } from '../views/base';
+import Search from './models/Search';
+import Recipe from './models/Recipe';
+import * as searchView from './views/searchView';
+import { elements, renderLoader, clearLoader } from './views/base';
 //Global State of the App
 /**
  - Search Object
@@ -11,6 +12,7 @@ import { elements, renderLoader, clearLoader } from '../views/base';
 
 const state = {};
 
+//Search CONTROLLER 
 const controlSearch = async () => {
     //1) Get query from View 
     const query = searchView.getInput(); //TODO
@@ -35,6 +37,10 @@ const controlSearch = async () => {
 }
 
 
+
+
+
+
 elements.searchForm.addEventListener('submit',e => {
     e.preventDefault();
     controlSearch();
@@ -50,6 +56,16 @@ elements.searchResPages.addEventListener('click', e => {
         console.log(goToPage);
     }
 });
+
+//Recipe CONTROLLER 
+
+const r = new Recipe(47025);
+r.getRecipe();
+console.log(r);
+
+
+
+
 
 // const search = new Search('pizza');
 // console.log(search);

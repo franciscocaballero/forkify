@@ -1,7 +1,11 @@
 import Search from './models/Search';
 import Recipe from './models/Recipe';
 import * as searchView from './views/searchView';
-import { elements, renderLoader, clearLoader } from './views/base';
+import {
+    elements,
+    renderLoader,
+    clearLoader
+} from './views/base';
 //Global State of the App
 /**
  - Search Object
@@ -15,7 +19,8 @@ const state = {};
 //Search CONTROLLER 
 const controlSearch = async () => {
     //1) Get query from View 
-    const query = searchView.getInput(); //TODO
+    // const query = searchView.getInput(); //TODO
+    const query = 'pizza'; //TESTING 
     console.log(query)
 
     if (query) {
@@ -29,29 +34,30 @@ const controlSearch = async () => {
         //4) search for recipes
         try {
             await state.search.getResults();
-            
+
             //5) Render the results on UI
-           clearLoader();
-           searchView.renderResults(state.search.result);
-        } catch {
+            clearLoader();
+            searchView.renderResults(state.search.result);
+        } catch (err) {
             alert("ERROR processing result");
             clearLoader();
         }
     }
 }
 
+elements.searchForm.addEventListener('submit', e => {
+    e.preventDefault();
+    controlSearch();
+});
 
-
-
-
-
-elements.searchForm.addEventListener('submit',e => {
+// FOR TESTING 
+window.addEventListener('load', e => {
     e.preventDefault();
     controlSearch();
 });
 
 elements.searchResPages.addEventListener('click', e => {
-    
+
     const btn = e.target.closest('.btn-inline');
     if (btn) {
         const goToPage = parseInt(btn.dataset.goto, 10);
@@ -76,21 +82,24 @@ const controlRecipe = async () => {
         // Prepare UI for Changes 
 
         // Create a new recipe object 
+        state.recipe = new Recipe(id);
+
+        //TESTING 
+        window.r = state.recipe;
         try {
-            state.recipe = new Recipe(id);
             // Get recipe data
             await state.recipe.getRecipe();
             // Calculate servings and time 
             state.recipe.calcTime();
             state.recipe.calcServings();
-    
+
             // Render recipe
             console.log(state.recipe);
-        } catch {
+        } catch (err) {
             alert('ERROR processing recipe');
         }
 
-        }
+    }
 
 };
 

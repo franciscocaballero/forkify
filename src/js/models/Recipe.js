@@ -31,7 +31,6 @@ export default class Recipe {
         const periods = Math.ceil(numIng / 3);
         this.time = periods * 15;
     }
-
     calcServings() {
         this.servings = 4;
     }
@@ -55,6 +54,25 @@ export default class Recipe {
             const arrIng = ingredient.split(' ');
             const unitIndex = arrIng.findIndex(el2 => unitsShort.includes(el2));   
 
+            let objIng;
+            if (unitIndex > -1){
+                //Then there is a unit
+                co
+            } else if (parseInt(arrIng[0], 10)) {
+                //Theres is No unit , but 1st element is a number 
+                objIng = {
+                    count: parseInt(arrIng[0], 10),
+                    unit: '',
+                    ingredient: arrIng.slice(1).join(' ')
+                }
+            } else if(unitIndex === -1){
+                // Then there No unit and NO number
+                objIng = {
+                    count: 1,
+                    unit: '',
+                    ingredient
+                }
+            }
 
             return ingredient;
 

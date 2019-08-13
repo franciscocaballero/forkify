@@ -57,7 +57,7 @@ export default class Recipe {
             if (unitIndex > -1) {
                 //Then there is a unit
                 // Ex. 4 1/2 cups, arrCount is [4, 1/2]; 
-                const arrCount = arrIng.slice(0, unitIndex); 
+                const arrCount = arrIng.slice(0, unitIndex);
 
                 let count;
                 if (arrCount.length === 1) {

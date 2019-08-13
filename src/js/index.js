@@ -21,7 +21,7 @@ const controlSearch = async () => {
     //1) Get query from View 
     const query = searchView.getInput(); //TODO
     // const query = 'pizza'; //TESTING 
-    console.log(query)
+    // console.log(query)
 
     if (query) {
         //2) New Search object and add to state 
@@ -69,9 +69,9 @@ elements.searchResPages.addEventListener('click', e => {
 
 //Recipe CONTROLLER 
 
-// const r = new Recipe(47025);
-// r.getRecipe();
-// console.log(r);
+const r = new Recipe(47025);
+r.getRecipe();
+console.log(r);
 
 const controlRecipe = async () => {
     // Get ID from URL 

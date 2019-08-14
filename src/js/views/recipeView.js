@@ -1,13 +1,40 @@
 import {
     elements
 } from './base';
+import { Fraction } from 'fractional';
+
+export const clearRecipe = () => {
+    elements.recipe.innerHTML = '';
+}
+
+export const formatCount = count => {
+    if (count) {
+        // count = 2.5 --> 2 1/2 
+        // count = 0.5 --> 2 1/2
+        const [int, dec] =  count.toString().split('.').map(el => parseInt(el, 10));
+
+        if (!dec) return count;
+
+        if (int === 0) {
+            const fr = new Fraction(count);
+            return `${fr.numerator}/${fr.denominator}`;
+        } else {
+            const fr = new Fraction(count - int); //2.5 - 2 = 0.5
+            return `${int} ${fr.numerator}/${fr.denominator}`;
+        }
+    }
+    return '?';
+}
+
+
+
 
 export const createIngredient = ingredient => `
     <li class="recipe__item">
             <svg class="recipe__icon">
                 <use href="img/icons.svg#icon-check"></use>
             </svg>
-            <div class="recipe__count">${ingredient.count}</div>
+            <div class="recipe__count">${formatCount(ingredient.count)}</div>
             <div class="recipe__ingredient">
                 <span class="recipe__unit">${ingredient.unit}</span>
                 ${ingredient.ingredient}
@@ -20,8 +47,8 @@ export const renderRecipe = recipe => {
     const markup = `
     <figure class="recipe__fig">
                 <img src="${recipe.img}" alt="${recipe.title}" class="recipe__img">
-                <h1 class="${recipe.title}">
-                    <span>Pasta with tomato cream sauce</span>
+                <h1 class="recipe__title">
+                    <span>${recipe.title}</span>
                 </h1>
             </figure>
 
@@ -91,7 +118,6 @@ export const renderRecipe = recipe => {
 
                 </a>
             </div>
-            -->
     `;
     elements.recipe.insertAdjacentHTML('afterbegin', markup);
 

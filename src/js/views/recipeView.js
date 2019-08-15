@@ -20,7 +20,7 @@ export const formatCount = count => {
             return `${fr.numerator}/${fr.denominator}`;
         } else {
             const fr = new Fraction(count - int); //2.5 - 2 = 0.5
-            return `${int} ${fr.numerator}/${fr.denominator}`;
+            return `${int} ${fr.numerator}/${fr.denominator}`;// 2 1/2
         }
     }
     return '?';

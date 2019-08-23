@@ -15,7 +15,8 @@ export const renderItem = item => {
             <use href="img/icons.svg#icon-circle-with-cross"></use>
         </svg>
     </button>
-</li>`;
+</li>
+`;
 elements.shopping.insertAdjacentHTML('beforeend', markup);
 };
 

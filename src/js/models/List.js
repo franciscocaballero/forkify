@@ -17,7 +17,7 @@ export default class List {
     }
 
     deleteItem(id) {
-        const index = this.items.findIndex(el => el.id === id); 
+        const index = this.items.findIndex(el => el.id === id);
         // Checks to see if the id passed in matches
 
         this.items.splice(index, 1);
@@ -28,4 +28,3 @@ export default class List {
         this.items.find(el => el.id === id).count = newCount;
     }
 }
-

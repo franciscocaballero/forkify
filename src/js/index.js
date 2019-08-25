@@ -18,6 +18,7 @@ import {
  */
 
 const state = {};
+window.state = state;
 
 //Search CONTROLLER 
 const controlSearch = async () => {
@@ -139,7 +140,24 @@ const controlList = () => {
 
 }
 
+//Handel Delete and update list item events 
+elements.shopping.addEventListener('click', e => {
+   const id = e.target.closest('.shopping__item').dataset.itemid;
 
+   // handle the delete button
+   if (e.target.matches('.shopping__delete, .shopping__delete *')) {
+       // Delete from state 
+        state.list.deleteItem(id);
+
+       // Delete from user UI
+        listView.deleteItem(id);
+
+    //Handel the count update
+   } else if (e.target.matches('.shopping__count-value')) {
+       const val = parseFloat(e.target.value, 10);
+       state.list.updateCount(id, val);
+   }
+});
 
 //Handling recipe button clicks 
 elements.recipe.addEventListener('click', e => {
